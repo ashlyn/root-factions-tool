@@ -1,16 +1,22 @@
 {
   "files": {
-    "main.css": "/root-factions-tool/static/css/main.073c9b0a.css",
-    "main.js": "/root-factions-tool/static/js/main.2c5c1096.js",
+    "main.css": "/root-factions-tool/static/css/main.1761c693.css",
+    "main.js": "/root-factions-tool/static/js/main.833c7aa8.js",
     "static/js/787.97470a40.chunk.js": "/root-factions-tool/static/js/787.97470a40.chunk.js",
-    "static/media/logo.svg": "/root-factions-tool/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/riverfolk.png": "/root-factions-tool/static/media/riverfolk.883663d3ea01b445f200.png",
+    "static/media/duchy.png": "/root-factions-tool/static/media/duchy.976bfb10a73c21ea3522.png",
+    "static/media/eyrie.png": "/root-factions-tool/static/media/eyrie.6d05d42f66ac9029a975.png",
+    "static/media/vagabond.png": "/root-factions-tool/static/media/vagabond.df94f22c5eb4298bb918.png",
+    "static/media/marquise.png": "/root-factions-tool/static/media/marquise.9ec9fcc12ecc45f3a656.png",
+    "static/media/keepers.png": "/root-factions-tool/static/media/keepers.f6296b7e047cf5429edd.png",
+    "static/media/alliance.png": "/root-factions-tool/static/media/alliance.685d50580795a979c99b.png",
     "index.html": "/root-factions-tool/index.html",
-    "main.073c9b0a.css.map": "/root-factions-tool/static/css/main.073c9b0a.css.map",
-    "main.2c5c1096.js.map": "/root-factions-tool/static/js/main.2c5c1096.js.map",
+    "main.1761c693.css.map": "/root-factions-tool/static/css/main.1761c693.css.map",
+    "main.833c7aa8.js.map": "/root-factions-tool/static/js/main.833c7aa8.js.map",
     "787.97470a40.chunk.js.map": "/root-factions-tool/static/js/787.97470a40.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.2c5c1096.js"
+    "static/css/main.1761c693.css",
+    "static/js/main.833c7aa8.js"
   ]
 }
