@@ -1,0 +1,14 @@
+.InlineFaction {
+  display: flex;
+
+  .FactionName {
+    flex: 0 0 auto;
+  }
+
+  .FactionIcon {
+    height: 1.5rem;
+    object-fit: contain;
+    align-self: flex-start;
+    margin: 0 0.2rem;
+  }
+}

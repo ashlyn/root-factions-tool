@@ -1,0 +1,14 @@
+.FactionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.FactionItem {
+  flex: 0 0 auto;
+  display: flex;
+
+  .Separator {
+    margin-right: 5px;
+  }
+}
