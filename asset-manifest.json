@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/root-factions-tool/static/css/main.9816c78b.css",
-    "main.js": "/root-factions-tool/static/js/main.bb869ca7.js",
+    "main.css": "/root-factions-tool/static/css/main.66979768.css",
+    "main.js": "/root-factions-tool/static/js/main.464676d6.js",
     "static/js/787.97470a40.chunk.js": "/root-factions-tool/static/js/787.97470a40.chunk.js",
     "static/media/riverfolk.png": "/root-factions-tool/static/media/riverfolk.883663d3ea01b445f200.png",
     "static/media/duchy.png": "/root-factions-tool/static/media/duchy.976bfb10a73c21ea3522.png",
@@ -10,13 +10,17 @@
     "static/media/marquise.png": "/root-factions-tool/static/media/marquise.9ec9fcc12ecc45f3a656.png",
     "static/media/keepers.png": "/root-factions-tool/static/media/keepers.f6296b7e047cf5429edd.png",
     "static/media/alliance.png": "/root-factions-tool/static/media/alliance.685d50580795a979c99b.png",
+    "static/media/bird.svg": "/root-factions-tool/static/media/bird.b939c0c63d32909d151b5e6cac11e9b6.svg",
+    "static/media/fox.svg": "/root-factions-tool/static/media/fox.23e5c4242344c77ec6277113ff2e4a75.svg",
+    "static/media/rabbit.svg": "/root-factions-tool/static/media/rabbit.5facfaa9e19655f4646004c9cd378be4.svg",
+    "static/media/mouse.svg": "/root-factions-tool/static/media/mouse.66ed4962f5683dfc5c6a19d69b0b1f8f.svg",
     "index.html": "/root-factions-tool/index.html",
-    "main.9816c78b.css.map": "/root-factions-tool/static/css/main.9816c78b.css.map",
-    "main.bb869ca7.js.map": "/root-factions-tool/static/js/main.bb869ca7.js.map",
+    "main.66979768.css.map": "/root-factions-tool/static/css/main.66979768.css.map",
+    "main.464676d6.js.map": "/root-factions-tool/static/js/main.464676d6.js.map",
     "787.97470a40.chunk.js.map": "/root-factions-tool/static/js/787.97470a40.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9816c78b.css",
-    "static/js/main.bb869ca7.js"
+    "static/css/main.66979768.css",
+    "static/js/main.464676d6.js"
   ]
 }
