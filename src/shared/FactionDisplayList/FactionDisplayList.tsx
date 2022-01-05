@@ -4,9 +4,15 @@ import { Faction } from "../Factions";
 import InlineFaction from "../InlineFaction/InlineFaction";
 import styles from "./FactionDisplayList.module.scss";
 
-const separator = "\u00B71";
+const separator = "\u00B7";
 
-const FactionDisplayList = ({ factions }: { factions: Faction[] }) => {
+const FactionDisplayList = ({
+  factions,
+  showTotalReach,
+}: {
+  factions: Faction[];
+  showTotalReach?: boolean;
+}) => {
   return (
     <ul className={styles.FactionsContainer}>
       {factions.map((f, i) => (
@@ -17,6 +23,13 @@ const FactionDisplayList = ({ factions }: { factions: Faction[] }) => {
           )}
         </li>
       ))}
+      {showTotalReach && (
+        <li key="reach">
+          <Typography>
+            <b>Total Reach: {factions.reduce((a, b) => a + b.reach, 0)}</b>
+          </Typography>
+        </li>
+      )}
     </ul>
   );
 };

@@ -1,6 +1,11 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
+import FormControl from "@mui/material/FormControl";
+import Box from "@mui/material/Box";
+
+export const MinPlayers = 2;
+export const MaxPlayers = 6;
 
 const PlayerCountSlider = ({
   maxPlayers,
@@ -15,23 +20,33 @@ const PlayerCountSlider = ({
     onPlayerCountChange(newValue as number);
   };
 
+  const marks: { label: string; value: number }[] = [];
+  for (let i = MinPlayers; i <= (maxPlayers || MaxPlayers); i++) {
+    marks.push({ label: `${i}`, value: i });
+  }
+
   return (
-    <div>
-      <Typography>
-        <h2>Players</h2>
-        If playing with bots, include them in the player count.
+    <Box>
+      <Typography id="players-label" variant="subtitle1">
+        Players
       </Typography>
-      <Slider
-        aria-label="Players"
-        defaultValue={players}
-        valueLabelDisplay="auto"
-        step={1}
-        min={2}
-        max={maxPlayers || 6}
-        onChange={handleChange}
-        marks
-      />
-    </div>
+      <FormControl sx={{ m: 1, width: 350 }}>
+        <Typography variant="caption" color="info">
+          Include bots, if applicable, in the player count.
+        </Typography>
+        <Slider
+          aria-label="Players"
+          aria-labelledby="players-label"
+          value={players}
+          valueLabelDisplay="auto"
+          step={1}
+          min={MinPlayers}
+          max={maxPlayers || MaxPlayers}
+          onChange={handleChange}
+          marks={marks}
+        />
+      </FormControl>
+    </Box>
   );
 };
 

@@ -1,0 +1,99 @@
+.Options {
+  > * {
+    margin-bottom: 1.2rem;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }  
+}
+
+$border-color: #d25962;
+
+.Header {
+  position: relative;
+  border: 2px solid $border-color;
+  padding: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 4rem 1rem;
+
+  &:before, &:after {
+    content: "•";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    color: $border-color;
+    border: 2px solid $border-color;
+    line-height: 12px;
+    top: 5px;
+    text-align: center;
+  }
+
+  &:before {
+    left: 5px;
+  }
+
+  &:after {
+    right: 5px;
+  }
+
+  .HeaderContent {
+    position: relative;
+    border: 2px solid $border-color;
+
+    &:before, &:after {
+      content: "•";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      color: $border-color;
+      border: 2px solid $border-color;
+      line-height: 12px;
+      bottom: -2px;
+      text-align: center;
+    }
+    &:before {
+      left: -2px;
+    }
+    &:after {
+      right: -2px;
+    }
+  }
+}
+
+.HeaderContent {
+  text-align: center;
+
+  .Title {
+    text-transform: uppercase;
+  }
+}
+
+.HeaderIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  img {
+    width: 3rem;
+  }
+
+  .HeaderFox {
+    filter: invert(46%) sepia(66%) saturate(4999%) hue-rotate(344deg) brightness(91%) contrast(86%);
+  }
+
+  .HeaderRabbit {
+    filter: invert(90%) sepia(64%) saturate(685%) hue-rotate(322deg) brightness(109%) contrast(96%);
+  }
+
+  .HeaderMouse {
+    filter: invert(80%) sepia(75%) saturate(1453%) hue-rotate(311deg) brightness(96%) contrast(100%);
+  }
+
+  .HeaderBird {
+    filter: invert(67%) sepia(23%) saturate(690%) hue-rotate(132deg) brightness(97%) contrast(89%);
+  }
+}
