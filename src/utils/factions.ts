@@ -9,7 +9,7 @@ import {
   riverfolk,
   vagabond,
   warlord,
-} from "./resources/icons/factions";
+} from "../icons/factions";
 
 export enum Expansion {
   VagabondPack = "Vagabond Pack",

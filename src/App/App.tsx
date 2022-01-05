@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Expansion, Faction, Factions } from "./shared/Factions";
-import FactionDisplayList from "./shared/FactionDisplayList/FactionDisplayList";
+import { Expansion, Faction, Factions } from "../utils/factions";
+import FactionDisplayList from "../components/FactionDisplayList/FactionDisplayList";
 import PlayerCountSlider, {
   MaxPlayers,
-} from "./PlayerCountSlider/PlayerCountSlider";
-import OwnedFactionList from "./OwnedExpansionsSelect/OwnedExpansionsSelect";
-import { GenerateFactionOptionsForNPlayers } from "./shared/combinations";
-import { IsValidCombination } from "./shared/validCombinations";
+} from "../components/PlayerCountSlider/PlayerCountSlider";
+import OwnedFactionList from "../components/OwnedExpansionsSelect/OwnedExpansionsSelect";
+import { GenerateFactionOptionsForNPlayers } from "../utils/combinationUtil";
+import { IsValidCombination } from "../utils/validCombinations";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -15,7 +15,7 @@ import styles from "./App.module.scss";
 import { green } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
-import { bird, rabbit, fox, mouse } from "./shared/resources/icons/header";
+import { bird, rabbit, fox, mouse } from "../icons/header";
 
 const baseFactions: Faction[] = Factions.filter((f) => !f.expansion);
 

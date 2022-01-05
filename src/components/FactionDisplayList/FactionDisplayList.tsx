@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Faction } from "../Factions";
+import { Faction } from "../../utils/factions";
 import InlineFaction from "../InlineFaction/InlineFaction";
 import styles from "./FactionDisplayList.module.scss";
 

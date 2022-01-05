@@ -1,4 +1,4 @@
-import { Faction } from "./Factions";
+import { Faction } from "./factions";
 
 export const GenerateFactionOptionsForNPlayers = (
   factions: Faction[],

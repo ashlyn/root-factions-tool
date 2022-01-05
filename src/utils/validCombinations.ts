@@ -1,4 +1,4 @@
-import { Faction, SecondVagabondKey, VagabondKey } from "./Factions";
+import { Faction, SecondVagabondKey, VagabondKey } from "./factions";
 
 export const MinimumReaches = { 2: 17, 3: 18, 4: 21, 5: 25, 6: 28 };
 
