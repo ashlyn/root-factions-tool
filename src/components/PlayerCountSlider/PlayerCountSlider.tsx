@@ -1,8 +1,9 @@
 import React from "react";
+
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
 
 export const MinPlayers = 2;
 export const MaxPlayers = 6;

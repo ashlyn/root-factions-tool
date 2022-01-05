@@ -16,5 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["shared"]
+  "include": ["shared"],
+  "files": ["./src/typings/**.d.ts"]
 }

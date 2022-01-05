@@ -1,15 +1,17 @@
 import * as React from "react";
-import { Theme, useTheme } from "@mui/material/styles";
+
+import CancelIcon from "@mui/icons-material/Cancel";
 import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import Chip from "@mui/material/Chip";
+import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Chip from "@mui/material/Chip";
-import { Expansion } from "../../utils/factions";
-import CancelIcon from "@mui/icons-material/Cancel";
 import Typography from "@mui/material/Typography";
+import { Theme, useTheme } from "@mui/material/styles";
+
+import { Expansion } from "../../utils/factions";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Expansion, Faction, Factions } from "../utils/factions";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { green } from "@mui/material/colors";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
 import FactionDisplayList from "../components/FactionDisplayList/FactionDisplayList";
+import OwnedFactionList from "../components/OwnedExpansionsSelect/OwnedExpansionsSelect";
 import PlayerCountSlider, {
   MaxPlayers,
 } from "../components/PlayerCountSlider/PlayerCountSlider";
-import OwnedFactionList from "../components/OwnedExpansionsSelect/OwnedExpansionsSelect";
+import { bird, fox, mouse, rabbit } from "../icons/header";
 import { GenerateFactionOptionsForNPlayers } from "../utils/combinationUtil";
+import { Expansion, Faction, Factions } from "../utils/factions";
 import { IsValidCombination } from "../utils/validCombinations";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import styles from "./App.module.scss";
-import { green } from "@mui/material/colors";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Stack from "@mui/material/Stack";
-import { bird, rabbit, fox, mouse } from "../icons/header";
 
 const baseFactions: Faction[] = Factions.filter((f) => !f.expansion);
 
