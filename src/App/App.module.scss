@@ -5,7 +5,7 @@
 
   > :last-child {
     margin-bottom: 0;
-  }  
+  }
 }
 
 $border-color: #d25962;
@@ -18,7 +18,8 @@ $border-color: #d25962;
   transform: translateX(-50%);
   margin: 4rem 1rem;
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: "•";
     position: absolute;
     width: 14px;
@@ -43,7 +44,8 @@ $border-color: #d25962;
     position: relative;
     border: 2px solid $border-color;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       content: "•";
       position: absolute;
       width: 14px;
@@ -82,18 +84,22 @@ $border-color: #d25962;
   }
 
   .HeaderFox {
-    filter: invert(46%) sepia(66%) saturate(4999%) hue-rotate(344deg) brightness(91%) contrast(86%);
+    filter: invert(46%) sepia(66%) saturate(4999%) hue-rotate(344deg)
+      brightness(91%) contrast(86%);
   }
 
   .HeaderRabbit {
-    filter: invert(90%) sepia(64%) saturate(685%) hue-rotate(322deg) brightness(109%) contrast(96%);
+    filter: invert(90%) sepia(64%) saturate(685%) hue-rotate(322deg)
+      brightness(109%) contrast(96%);
   }
 
   .HeaderMouse {
-    filter: invert(80%) sepia(75%) saturate(1453%) hue-rotate(311deg) brightness(96%) contrast(100%);
+    filter: invert(80%) sepia(75%) saturate(1453%) hue-rotate(311deg)
+      brightness(96%) contrast(100%);
   }
 
   .HeaderBird {
-    filter: invert(67%) sepia(23%) saturate(690%) hue-rotate(132deg) brightness(97%) contrast(89%);
+    filter: invert(67%) sepia(23%) saturate(690%) hue-rotate(132deg)
+      brightness(97%) contrast(89%);
   }
 }
