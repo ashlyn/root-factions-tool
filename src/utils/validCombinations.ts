@@ -2,9 +2,15 @@ import { Faction, SecondVagabondKey, VagabondKey } from "./factions";
 
 export const MinimumReaches = { 2: 17, 3: 18, 4: 21, 5: 25, 6: 28 };
 
-export const IsValidCombination = (combo: Faction[]): boolean => {
+export const IsValidCombination = (
+  combo: Faction[],
+  mustInclude: Faction[]
+): boolean => {
   const totalReach = combo.reduce((a, b) => a + b.reach, 0);
   if (totalReach < MinimumReaches[combo.length]) {
+    return false;
+  }
+  if (!mustInclude.every((f) => combo.includes(f))) {
     return false;
   }
   const hasVagabond1 = combo.find((f) => f.name === VagabondKey);
