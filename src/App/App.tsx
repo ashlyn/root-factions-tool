@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from "react";
 
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { green } from "@mui/material/colors";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+  ThemeProvider,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
+import AdvancedOptionsPanel from "../components/AdvancedOptionsPanel/AdvancedOptionsPanel";
 import FactionDisplayList from "../components/FactionDisplayList/FactionDisplayList";
+import Header from "../components/Header/Header";
 import OwnedFactionList from "../components/OwnedExpansionsSelect/OwnedExpansionsSelect";
 import PlayerCountSlider, {
   MaxPlayers,
 } from "../components/PlayerCountSlider/PlayerCountSlider";
-import { bird, fox, mouse, rabbit } from "../icons/header";
 import { GenerateFactionOptionsForNPlayers } from "../utils/combinationUtil";
 import { Expansion, Faction, Factions } from "../utils/factions";
 import { IsValidCombination } from "../utils/validCombinations";
@@ -21,22 +30,24 @@ import styles from "./App.module.scss";
 
 const baseFactions: Faction[] = Factions.filter((f) => !f.expansion);
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: green[600],
+const theme = responsiveFontSizes(
+  createTheme({
+    palette: {
+      primary: {
+        main: green[600],
+      },
+      secondary: {
+        main: "#D7734B",
+      },
+      background: {
+        default: "#FDFAF3",
+      },
     },
-    secondary: {
-      main: "#D7734B",
+    typography: {
+      fontFamily: "'Libre Baskerville', serif",
     },
-    background: {
-      default: "#FDFAF3",
-    },
-  },
-  typography: {
-    fontFamily: "'Libre Baskerville', serif",
-  },
-});
+  })
+);
 
 const App = () => {
   const [ownedFactions, setOwnedFactions] = useState<Faction[]>(baseFactions);
@@ -44,15 +55,19 @@ const App = () => {
   const [validFactionCombinations, setValidFactionCombinations] = useState<
     Faction[][]
   >([]);
+  const [mustIncludeFactions, setMustIncludeFactions] = useState<Faction[]>([]);
+  const [dontIncludeFactions, setDontIncludeFactions] = useState<Faction[]>([]);
 
   useEffect(() => {
     const allCombinations = GenerateFactionOptionsForNPlayers(
-      ownedFactions,
+      ownedFactions.filter((f) => !dontIncludeFactions.includes(f)),
       playerCount
     );
-    const validCombinations = allCombinations.filter(IsValidCombination);
+    const validCombinations = allCombinations.filter((c) =>
+      IsValidCombination(c, mustIncludeFactions)
+    );
     setValidFactionCombinations(validCombinations);
-  }, [ownedFactions, playerCount]);
+  }, [dontIncludeFactions, mustIncludeFactions, ownedFactions, playerCount]);
 
   const onPlayerCountChange = (newPlayerCount: number): void => {
     setPlayerCount(newPlayerCount);
@@ -66,7 +81,25 @@ const App = () => {
     if (playerCount > totalFactionCount) {
       setPlayerCount(totalFactionCount);
     }
-    setOwnedFactions([...baseFactions, ...newOwnedFactions]);
+    const owned = [...baseFactions, ...newOwnedFactions];
+    const newMustInclude = mustIncludeFactions.filter((f) => owned.includes(f));
+    const newDontInclude = dontIncludeFactions.filter((f) => owned.includes(f));
+
+    setOwnedFactions(owned);
+    setMustIncludeFactions(newMustInclude);
+    setDontIncludeFactions(newDontInclude);
+  };
+
+  const onMustIncludeFactionsChange = (
+    newMustIncludeFactions: Faction[]
+  ): void => {
+    setMustIncludeFactions(newMustIncludeFactions);
+  };
+
+  const onDontIncludeFactionsChange = (
+    newDontIncludeFactions: Faction[]
+  ): void => {
+    setDontIncludeFactions(newDontIncludeFactions);
   };
 
   return (
@@ -75,50 +108,16 @@ const App = () => {
         <CssBaseline />
         <Grid>
           <Grid item xs={12}>
-            <Box
-              className={styles.Header}
-              sx={{
-                width: "fit-content",
-              }}
-            >
-              <Stack className={styles.HeaderContent} p={3}>
-                <Box className={styles.HeaderIcons}>
-                  <img src={fox} className={styles.HeaderFox} alt="Fox Icon" />
-                  <img
-                    src={rabbit}
-                    className={styles.HeaderRabbit}
-                    alt="Rabbit Icon"
-                  />
-                  <img
-                    src={mouse}
-                    className={styles.HeaderMouse}
-                    alt="Mouse Icon"
-                  />
-                  <img
-                    src={bird}
-                    className={styles.HeaderBird}
-                    alt="Bird Icon"
-                  />
-                </Box>
-                <Typography variant="h1" className={styles.Title}>
-                  Root
-                </Typography>
-                <Typography variant="h6">Faction Builder Tool</Typography>
-                <Typography variant="subtitle2">
-                  Use this tool to help build valid game sets according to the
-                  Law of Root.
-                </Typography>
-              </Stack>
-            </Box>
+            <Header />
           </Grid>
-          <Box sx={{ m: 2, paddingBottom: 24 }}>
+          <Box sx={{ m: 2, pb: 24 }}>
             <Grid
               container
               rowSpacing={2}
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               justifyContent="center"
             >
-              <Grid item className={styles.Options}>
+              <Grid item className={styles.Options} sm={12} md={4} lg={3}>
                 <PlayerCountSlider
                   onPlayerCountChange={onPlayerCountChange}
                   players={playerCount}
@@ -127,8 +126,27 @@ const App = () => {
                 <OwnedFactionList
                   onOwnedExpansionsChange={onOwnedExpansionsChange}
                 />
+
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="advanced-options-content"
+                    id="advanced-options-header"
+                  >
+                    <Typography>Advanced Options</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <AdvancedOptionsPanel
+                      ownedFactions={ownedFactions}
+                      mustIncludeFactions={mustIncludeFactions}
+                      dontIncludeFactions={dontIncludeFactions}
+                      onMustIncludeFactionsChange={onMustIncludeFactionsChange}
+                      onDontIncludeFactionsChange={onDontIncludeFactionsChange}
+                    />
+                  </AccordionDetails>
+                </Accordion>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item sm={12} md={8} lg={9}>
                 <Typography variant="h5">Valid Faction Setups</Typography>
                 <Stack
                   sx={{

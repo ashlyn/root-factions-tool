@@ -31,7 +31,7 @@ const PlayerCountSlider = ({
       <Typography id="players-label" variant="subtitle1">
         Players
       </Typography>
-      <FormControl sx={{ m: 1, width: 350 }}>
+      <FormControl sx={{ m: 1, width: 0.95 }}>
         <Typography variant="caption" color="info">
           Include bots, if applicable, in the player count.
         </Typography>

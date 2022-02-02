@@ -11,6 +11,8 @@ import {
   warlord,
 } from "../icons/factions";
 
+export const BaseGame = "Base Game";
+
 export enum Expansion {
   VagabondPack = "Vagabond Pack",
   Riverfolk = "Riverfolk",
@@ -23,6 +25,10 @@ export type Faction = {
   reach: number;
   icon: string;
   expansion?: Expansion;
+};
+
+export const SortFactionsByExpansion = (a: Faction, b: Faction): number => {
+  return (a.expansion || BaseGame).localeCompare(b.expansion || BaseGame);
 };
 
 export const VagabondKey = "Vagabond";
